@@ -1,0 +1,15 @@
+@layout('layouts/master')
+@section('content')
+@each(schedules in dataGroupedByBranch)
+<div class="my-3 p-3 bg-white rounded shadow-sm">
+  <h4 class="border-bottom border-gray pb-2 mb-0"><strong>{{schedules[0].department_name}}<strong></h4>
+  @each(schedule in schedules)
+  <div class="media text-muted border-bottom border-gray pt-3">
+       <h5 class="media-body text-gray-dark"><strong>{{ schedule.phone }}</strong> - {{ schedule.name }}</h5>
+        <a href="/admin/edit-schedule/{{schedule.id}}" class="btn btn-info btn-sm mb-3 text-decotarion-none">Editar</a>
+        <a href="/admin/delete-schedule/{{schedule.id}}" class="btn btn-outline-danger btn-sm ml-3 text-decotarion-none">Excluir</a>
+  </div>
+  @endeach
+</div>
+@endeach
+@endsection
