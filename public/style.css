@@ -45,10 +45,17 @@ form {
   padding: 20px;
 }
 
-.text-decotarion-none {
+.text-decoration-none {
   text-decoration: none;
 }
 
 label {
   font-weight: bold;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
 }

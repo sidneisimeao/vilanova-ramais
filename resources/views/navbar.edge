@@ -1,68 +1,34 @@
- <!-- <nav class="navbar navbar-expand-lg navbar-dark text-white">
+  @loggedIn
 
-<div class="navbar-right" id="navbarNav">
-     {{-- @loggedIn--}}
-          <ul class="navbar-nav">
-                  <li>
-                      <div class="text-right">
-                           <a href="{{-- route('create.quote') --}}" class="btn btn-outline-primary">Create Quote</a>
-                      </div>
-                  </li>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-                  <li>
-                    <div class="text-right">
-                      <a href="{{--route('logout') --}}" class="btn btn-outline-primary">Sair</a>
-                    </div>
-                </li>
-          </ul>
-     {{-- @else--}}
-          <ul class="navbar-nav">
-              <li class="nav-item active pr-2">
-                  <a href="{{-- route('login.create') --}}" class="btn btn-outline-danger">
-                    login
-                  </a>
-              </li>
-              <li class="nav-item active pr-2">
-                  <a href="{{--route('register.create')--}}" class="btn btn-outline-primary">
-                      Register
-                  </a>
-              </li>
-          </ul>
-     {{-- @endloggedIn --}}
-  </div>-->
-</nav>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+      <div class="container">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{{ route('index.schedule') }}">Contatos <span class="sr-only">(página atual)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{{ route('index.department') }}">Departamentos <span class="sr-only">(página atual)</span></a>
+          </li>
 
-  <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(página atual)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Ação</a>
-          <a class="dropdown-item" href="#">Outra ação</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Algo mais aqui</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Desativado</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
-      <button class="btn btn-info my-2 my-sm-0" type="submit">Pesquisar</button>
-    </form>
-  </div>
-</nav>
+          <li class="nav-item active">
+            <a class="nav-link" href="{{ route('logout') }}"> Sair <span class="sr-only">(página atual)</span></a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" method="GET" action="{{ route('index.schedule') }}">
+          <div class="input-group">
+          <input  id='search' type="text" class="form-control" value="{{ search || ''}}" name="search" placeholder="Pesquise contato" aria-label="Pesquise contato" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button  type="search" class="btn btn-info" placeholder="Pesquisar contatos" aria-label="Pesquisar" type="button">Pesquisar</button>
+              <button class="btn btn-secondary" onclick="document.getElementById('search').value = '';" type="submit">X</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    </nav>
+  @endloggedIn

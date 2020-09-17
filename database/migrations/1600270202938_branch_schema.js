@@ -7,7 +7,7 @@ class BranchSchema extends Schema {
   up() {
     this.create('branches', (table) => {
       table.increments()
-      table.string('name', 80).notNullable().unique()
+      table.string('name', 80).notNullable()
       table.timestamps()
     })
   }

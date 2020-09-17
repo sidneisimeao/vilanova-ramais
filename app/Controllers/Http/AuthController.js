@@ -1,7 +1,10 @@
 'use strict'
 const User = use('App/Models/User')
 class AuthController {
-  loginView({ view }) {
+  loginView({ view, auth, response }) {
+    if (auth.user) {
+      return response.route('index.schedule')
+    }
     return view.render('auth.login')
   }
 
@@ -11,7 +14,7 @@ class AuthController {
 
   async postLogin({ request, auth, response }) {
     await auth.attempt(request.input('email'), request.input('password'))
-    return response.route('schedule.index')
+    return response.route('index.schedule')
   }
 
   /*

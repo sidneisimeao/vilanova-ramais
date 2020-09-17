@@ -12,7 +12,7 @@ class ScheduleSchema extends Schema {
         .unsigned()
         .references('id')
         .inTable('departments')
-      table.string('name', 255).notNullable().unique().index()
+      table.string('name', 255).notNullable().index()
       table.timestamps()
     })
   }

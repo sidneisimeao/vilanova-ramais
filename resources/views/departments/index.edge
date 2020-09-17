@@ -1,0 +1,25 @@
+@layout('layouts/master')
+@section('content')
+<br />
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Todos Departamentos</li>
+  </ol>
+</nav>
+<div class="media text-muted float-right mr-3">
+       <a type="button" href="{{ route('create.department') }}" class="btn btn-sm btn-outline-dark text-decoration-none">Novo Departamento</a>
+</div>
+<br />
+@each(departments in dataGroupedByBranch)
+<div class="my-3 p-3 bg-white rounded shadow-sm">
+  <h4 class="border-bottom border-gray pb-2 mb-0"><strong>Filial: {{departments[0].branch_name}}<strong></h4>
+  @each(department in departments)
+  <div class="media text-muted border-bottom border-gray pt-3">
+       <h5 class="media-body text-gray-dark"><strong>{{ department.name }}</strong></h5>
+        <a href="{{ route('edit.department', { id: department.id }) }}" class="btn btn-info btn-sm mb-3 text-decoration-none">Editar</a>
+        <!-- <a href="{{-- route('destroy.department', { id: department.id }) --}}" class="btn btn-danger btn-sm ml-3 text-decoration-none">Excluir</a>-->
+  </div>
+  @endeach
+</div>
+@endeach
+@endsection

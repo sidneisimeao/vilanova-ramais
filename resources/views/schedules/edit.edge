@@ -8,18 +8,30 @@
               <li class="breadcrumb-item active" aria-current="page">Editar Contato</li>
             </ol>
           </nav>
-            <form method="POST" action="/update-quote/{{schedule.id}}">
+            <form method="POST" action="{{ route(action, { id: schedule.id || '' }) }}">
                 {{ csrfField() }}
                 <div class="form-group">
                     <label for="pasword">Nome:</label>
-                    <input type="text" name='name' id="name" class="form-control" value='{{schedule.name}}'>
+                    <input type="text" name='name' id="name" class="form-control" value='{{schedule.name || ''}}' placeholder="Informe o nome">
                </div>
                 <div class="form-group">
                   <label for="pasword">Ramal:</label>
-                  <input type="text" name='phone' id="phone" class="form-control" value='{{schedule.phone}}'>
+                  <input type="text" name='phone' id="phone" class="form-control" value='{{schedule.phone || ''}}' placeholder="Informe o ramal">
                </div>
-                    <a href="/admin/schedule" class="float-left d-block btn btn-outline-dark btn-sm text-decotarion-none">Voltar</a>
-                    <button type="submit" class="float-right d-block btn btn-info btn-sm">Editar</button>
+                <div class="form-group">
+                <label for="pasword">Departamento:</label>
+                <select class="form-control" name='department_id'>
+                  @each(department in departments)
+                    @if(schedule.department_id && schedule.department_id === department.id)
+                      <option value='{{ department.id }}' selected>{{ department.name }}</option>
+                      @else
+                      <option value='{{ department.id }}' >{{ department.name }}</option>
+                    @endif
+                  @endeach
+                </select>
+               </div>
+                <a href="{{ route('index.schedule') }}" class="float-left d-block btn btn-outline-dark btn-sm text-decoration-none">Voltar</a>
+                <button type="submit" class="float-right d-block btn btn-info btn-sm">Editar</button>
             </form>
         </div>
     </div>

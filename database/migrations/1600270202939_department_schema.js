@@ -8,7 +8,7 @@ class DepartmentSchema extends Schema {
     this.create('departments', (table) => {
       table.increments()
       table.integer('branch_id').unsigned().references('id').inTable('branches')
-      table.string('name', 80).notNullable().unique()
+      table.string('name', 80).notNullable()
       table.timestamps()
     })
   }
