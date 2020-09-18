@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="description" content="Lista de Ramais Vila Nova">
+  <link rel="manifest" href="{{ assetsUrl('/manifest.json') }}">
+  <link rel="stylesheet" href="{{ assetsUrl('assets/css/main.css') }}">
+  <link rel="shortcut icon" href="{{ assetsUrl('assets/img/iconified/apple-touch-icon.png') }}" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="{{ assetsUrl('assets/img/iconified/apple-touch-icon.png') }}" />
+  <link rel="apple-touch-icon" sizes="57x57" href="{{ assetsUrl('assets/img/iconified/apple-touch-icon-57x57.png') }}" />
+  <link rel="apple-touch-icon" sizes="72x72" href="{{ assetsUrl('assets/img/iconified/apple-touch-icon-72x72.png') }}" />
+  <link rel="apple-touch-icon" sizes="76x76" href="{{ assetsUrl('assets/img/iconified/apple-touch-icon-76x76.png') }}" />
+  <link rel="apple-touch-icon" sizes="114x114" href="{{ assetsUrl('assets/img/iconified/apple-touch-icon-114x114.png') }}" />
+  <link rel="apple-touch-icon" sizes="120x120" href="{{ assetsUrl('assets/img/iconified/apple-touch-icon-120x120.png') }}" />
+  <link rel="apple-touch-icon" sizes="144x144" href="{{ assetsUrl('assets/img/iconified/apple-touch-icon-144x144.png') }}" />
+  <link rel="apple-touch-icon" sizes="152x152" href="{{ assetsUrl('assets/img/iconified/apple-touch-icon-152x152.png') }}" />
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ assetsUrl('assets/img/iconified/apple-touch-icon-180x180.png') }}" />
+
+  <title>Vila Nova - Lista de Ramais e Telefones</title>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(reg => console.info('registered sw'))
+        .catch(err => console.error('error registering sw', err));
+    }
+  </script>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div id="sha_app" class="row">
+
+      <section id="sha_header_bar" class="col-12">
+        <div class="row">
+          <div class="col-12">
+            <i class="fa fa-chevron-left"></i>
+          </div>
+          <div class="col-12">
+            <span class="sub-heading">Vila Nova</span>
+            <span class="heading">Lista de Ramais e Telefones</span>
+          </div>
+        </div>
+      </section>
+      <br />
+      <section i class="col-12">
+        <form autocomplete="off">
+          <div class="input-group mb-3">
+            <label id='label-input' for="input-search">Pesquisar</label>
+            <input type="text" class="form-control" placeholder="Pesquise: ramal, nome ou depart." id='input-search'
+              value="">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" id='btn-clear' type="button">x</button>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <section id="sha_temp_meta" class="col-12"></section>
+    </div>
+  </div>
+  <script src="./dist/bundle.js"></script>
+</body>
+
+</html>

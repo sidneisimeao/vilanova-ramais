@@ -18,6 +18,8 @@
 */
 
 const { Ignitor } = require('@adonisjs/ignitor')
+const https = require('https')
+const pem = require('pem')
 
 new Ignitor(require('@adonisjs/fold'))
   .appRoot(__dirname)

@@ -1,6 +1,8 @@
 'use strict'
 const Route = use('Route')
 
+Route.get('/', 'FrontController.index').as('index.front')
+
 Route.group(() => {
   Route.get('/', 'AuthController.loginView').as('index')
   Route.post('/', 'AuthController.postLogin').as('login.store')
